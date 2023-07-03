@@ -24,6 +24,8 @@ Route::middleware(['admin_auth'])->group(function(){
     Route::group(['prefix='>'admin'],function(){
         Route::get('password/changePage',[AdminController::class,'changePwPage'])->name('admin#changePwPage');
         Route::post('password/change',[AdminController::class,'changePassword'])->name('admin#changePassword');
+        Route::get('details',[AdminController::class,'detailsPage'])->name('admin#detailsPage');
+        Route::get('edit',[AdminController::class,'edit'])->name('admin#editPage');
     });
     //after login admin
     Route::group(['prefix'=>'category','middleware'=>'admin_auth'],function(){
