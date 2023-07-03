@@ -20,7 +20,6 @@
 
     <!-- Bootstrap CSS-->
     <link href="{{asset('admin/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet')}}" media="all">
-
     <!-- Vendor CSS-->
     <link href="{{asset('admin/vendor/animsition/animsition.min.css" rel="stylesheet')}}" media="all">
     <link href="{{asset('admin/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css')}}" rel="stylesheet" media="all">

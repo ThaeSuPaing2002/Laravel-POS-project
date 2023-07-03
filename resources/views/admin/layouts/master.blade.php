@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard</title>
+    <title>@yield('title')</title>
 
     <!-- Fontfaces CSS-->
     <link href="{{asset('admin/css/font-face.css')}}" rel="stylesheet" media="all">
@@ -148,10 +148,16 @@
                                                     <a href="#">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
                                                 </div>
+                                                <div class="account-dropdown__item">
+                                                    <a href="{{route('admin#changePwPage')}}">
+                                                        <i class="zmdi zmdi-account"></i>Change password</a>
+                                                </div>
                                             </div>
                                             <div class="account-dropdown__footer">
-                                                <a href="#">
-                                                    <i class="zmdi zmdi-power"></i>Logout</a>
+                                                <form action="{{route('logout')}}" method="POST">
+                                                    @csrf
+                                                    <button class="btn btn-danger" type="submit"><i class="zmdi zmdi-power me-3"></i>Logout</button>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
