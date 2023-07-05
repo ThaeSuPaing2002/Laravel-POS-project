@@ -14,6 +14,8 @@
                             </div>
                             <hr>
                             <div class="row">
+                                <form action="{{route('admin#update',Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
+                                    @csrf
                                 <div class="col-4">
                                     @if(Auth::user()->image == null)
                                         <img src="{{asset('admin/images/default-user.png')}}" class="img-thumbnail" />
@@ -21,34 +23,35 @@
                                         <img src="{{asset('admin/images/bg-title-01.jpg')}}"  />
                                     @endif
                                     <div class="mb-3">
-                                         <input class="form-control form-control-sm" id="formFileSm" type="file">
+                                         <input class="form-control form-control-sm" id="formFileSm" name="image" type="file">
                                       </div>
                                 </div>
                                 <div class="col-8 ">
-                                    <form>
+
                                         <div class="mb-3">
                                           <label for="" class="form-label">Name</label>
-                                          <input type="text" class="form-control" value="{{Auth::user()->name}}">
+                                          <input type="text" class="form-control" name="uname" value="{{Auth::user()->name}}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Email address</label>
-                                            <input type="email" class="form-control" value="{{Auth::user()->email}}">
+                                            <input type="email" class="form-control" name="uemail" value="{{Auth::user()->email}}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Phone</label>
-                                            <input type="text" class="form-control" value="{{Auth::user()->phone}}">
+                                            <input type="text" class="form-control" name="uphone" value="{{Auth::user()->phone}}">
                                         </div>
                                         <div class="mb-3">
                                             <label for="" class="form-label">Address</label>
-                                            <input type="text" class="form-control" value="{{Auth::user()->address}}">
+                                            <input type="text" class="form-control" name="uaddress" value="{{Auth::user()->address}}">
                                         </div>
                                         <div class="mb-3">
                                           <label for="" class="form-label">Role</label>
                                           <input type="text" class="form-control" value="{{Auth::user()->role}}" disabled>
                                         </div>
                                         <button class="btn btn-success" type="submit">Update Profile</button>
-                                      </form>
+
                                 </div>
+                            </form>
                             </div>
                         </div>
                     </div>

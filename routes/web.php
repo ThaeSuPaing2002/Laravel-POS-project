@@ -20,12 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::middleware(['admin_auth'])->group(function(){
+    Route::redirect('/', 'loginPage');
+    Route::get('loginPage',[AuthController::class,'loginPage'])->name('auth#loginPage');
+    Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
+});
+Route::middleware(['admin_auth'])->group(function(){
     //admin account
     Route::group(['prefix='>'admin'],function(){
         Route::get('password/changePage',[AdminController::class,'changePwPage'])->name('admin#changePwPage');
         Route::post('password/change',[AdminController::class,'changePassword'])->name('admin#changePassword');
         Route::get('details',[AdminController::class,'detailsPage'])->name('admin#detailsPage');
         Route::get('edit',[AdminController::class,'edit'])->name('admin#editPage');
+        Route::post('update/{id}',[AdminController::class,'update'])->name('admin#update');
     });
     //after login admin
     Route::group(['prefix'=>'category','middleware'=>'admin_auth'],function(){
@@ -56,9 +62,7 @@ Route::middleware(['admin_auth'])->group(function(){
 });
 
 //real project's routes start here
-Route::redirect('/', 'loginPage');
-Route::get('loginPage',[AuthController::class,'loginPage'])->name('auth#loginPage');
-Route::get('registerPage',[AuthController::class,'registerPage'])->name('auth#registerPage');
+
 Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboardPage');
 
 
