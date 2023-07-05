@@ -18,7 +18,7 @@
                                     @if(Auth::user()->image == null)
                                         <img src="{{asset('admin/images/default-user.png')}}" class="img-thumbnail" />
                                         @else
-                                        <img src="{{asset('admin/images/bg-title-01.jpg')}}"  />
+                                        <img src="{{asset('storage/'.Auth::user()->image)}}"  />
                                     @endif
                                         <div class="text-center mt-3">
                                             <a href="{{route('admin#editPage')}}">

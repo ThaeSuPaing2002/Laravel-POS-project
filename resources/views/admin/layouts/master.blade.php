@@ -128,7 +128,7 @@
                                             @if(Auth::user()->image == null)
                                                         <img src="{{asset('admin/images/default-user.png')}}"  />
                                                         @else
-                                                        <img src="{{asset('admin/images/bg-title-01.jpg')}}"  />
+                                                        <img src="{{asset('storage/'.Auth::user()->image)}}"  />
                                                         @endif
                                         </div>
                                         <div class="content">
@@ -141,7 +141,7 @@
                                                         @if(Auth::user()->image == null)
                                                         <img src="{{asset('admin/images/default-user.png')}}"  />
                                                         @else
-                                                        <img src="{{asset('admin/images/bg-title-01.jpg')}}"  />
+                                                        <img src="{{asset('storage/'.Auth::user()->image)}}"  />
                                                         @endif
                                                     </a>
                                                 </div>

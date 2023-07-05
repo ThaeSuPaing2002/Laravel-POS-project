@@ -16,11 +16,11 @@
                             <div class="row">
                                 <form action="{{route('admin#update',Auth::user()->id)}}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                <div class="col-4">
+                                <div class="col-12">
                                     @if(Auth::user()->image == null)
                                         <img src="{{asset('admin/images/default-user.png')}}" class="img-thumbnail" />
                                         @else
-                                        <img src="{{asset('admin/images/bg-title-01.jpg')}}"  />
+                                        <img src="{{asset('storage/'.Auth::user()->image)}}"  />
                                     @endif
                                     <div class="mb-3">
                                          <input class="form-control form-control-sm" id="formFileSm" name="image" type="file">
