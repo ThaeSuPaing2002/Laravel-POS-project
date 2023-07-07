@@ -49,12 +49,12 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
-                            <a class="js-arrow" href="index.html">
-                                <i class="fas fa-tachometer-alt"></i>Home Page
+                            <a class="js-arrow" href="{{route('product#list')}}">
+                                <i class="fas fa-tachometer-alt"></i>Products
                             </a>
                         </li>
                         <li>
-                            <a href="category.html">
+                            <a href="{{route('category#list')}}">
                                 <i class="fas fa-chart-bar"></i>Category</a>
                         </li>
                         <li>
