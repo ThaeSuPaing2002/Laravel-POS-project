@@ -28,6 +28,11 @@ class ProductController extends Controller
         Product::create($data);
         return redirect()->route('product#list');
     }
+    //delete product
+    public function delete($id){
+        Product::where('id',$id)->delete();
+        return redirect()->route('product#list')->with(['deleteSuccess'=>"Product Deleted."]);
+    }
     //get Form Data
     private function getRequestData($request){
         return [

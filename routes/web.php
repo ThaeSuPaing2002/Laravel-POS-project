@@ -1,10 +1,12 @@
 <?php
 
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TestAjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,6 +50,8 @@ Route::middleware(['admin_auth'])->group(function(){
         Route::get('list',[ProductController::class,'list'])->name('product#list');
         Route::get('create',[ProductController::class,'createPage'])->name('product#createPage');
         Route::post('create',[ProductController::class,'create'])->name('product#create');
+        Route::get('edit',[ProductController::class,'edit'])->name('product#edit');
+        Route::get('delete/{id}',[ProductController::class,'delete'])->name('product#delete');
     });
 // Route::middleware([
 //     'auth:sanctum',
@@ -71,6 +75,13 @@ Route::middleware(['admin_auth'])->group(function(){
 //real project's routes start here
 
 Route::get('dashboard',[AuthController::class,'dashboard'])->name('dashboardPage');
+
+//Testing Ajax For Other Project Delete Later
+Route::get('ajaxTest',[TestAjaxController::class,'show'])->name('test#ajax');
+Route::get('getList',function(){
+    $data = Product::get();
+    return $data;
+});
 
 
 

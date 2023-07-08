@@ -44,7 +44,14 @@
                 </div>
                 {{-- to show alert part --}}
                 <div class="row">
-
+                    @if(session('deleteSuccess'))
+                    <div class="col-12">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>{{session('deleteSuccess')}}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    </div>
+                    @endif
                 </div>
                 <div class="table-responsive table-responsive-data2">
                     <table class="table table-data2">
@@ -73,7 +80,7 @@
                                             <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
                                                 <button type="button" class="btn btn-primary">View</button>
                                                 <button type="button" class="btn btn-primary">Edit</button>
-                                                <button type="button" class="btn btn-primary">Delete</button>
+                                                <a href="{{route('product#delete',$product->id)}}" class="btn btn-danger">Delete</a>
                                             </div>
                                         </td>
                                     </tr>
