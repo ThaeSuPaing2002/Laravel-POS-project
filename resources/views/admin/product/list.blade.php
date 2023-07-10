@@ -10,8 +10,15 @@
                     <div class="table-data__tool-left">
                         <div class="overview-wrap">
                             <h2 class="title-1">Product List</h2>
-
                         </div>
+                    </div>
+                    <div class="alert">
+                        @if(session('creatSuccess'))
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <strong>{{session('creatSuccess')}}</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        @endif
                     </div>
                     <div class="table-data__tool-right">
                         <a href="{{route('product#createPage')}}">
@@ -78,7 +85,7 @@
                                         <td>{{$product->waitingTime}} mins</td>
                                         <td>
                                             <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
-                                                <button type="button" class="btn btn-primary">View</button>
+                                                <a href="{{route('product#view',$product->id)}}" class="btn btn-success">View</a>
                                                 <button type="button" class="btn btn-primary">Edit</button>
                                                 <a href="{{route('product#delete',$product->id)}}" class="btn btn-danger">Delete</a>
                                             </div>

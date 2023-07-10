@@ -21,27 +21,27 @@
                             @csrf
                             <div class="form-group">
                                 <label for="cc-payment" class="control-label mb-1">Name</label>
-                                <input id="cc-pament" name="productName" type="text" class="form-control " aria-required="true" aria-invalid="false">
+                                <input id="cc-pament" name="productName" type="text" class="form-control " aria-required="true" value="{{old('productName')}}" aria-invalid="false">
                                 <small class="text-danger">@error('productName'){{$message}}@enderror</small>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                                <textarea class="form-control" name="productDescription" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                <textarea class="form-control" name="productDescription" id="exampleFormControlTextarea1" rows="3">{{old('productDescription')}} </textarea>
                                 <small class="text-danger">@error('productDescription'){{$message}}@enderror</small>
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Product Image</label>
-                                <input class="form-control" type="file" name="productImage" id="formFile">
+                                <input class="form-control" type="file" name="productImage" value="{{old('productImage')}}" id="formFile">
                                 <small class="text-danger">@error('productImage'){{$message}}@enderror</small>
                               </div>
                             <div class="form-group">
                                 <label for="cc-payment" class="control-label mb-1">Price</label>
-                                <input id="cc-pament" name="productPrice" type="number" class="form-control " aria-required="true" aria-invalid="false">
+                                <input id="cc-pament" name="productPrice" type="number" class="form-control" value="{{old('productPrice')}}" aria-required="true" aria-invalid="false">
                                 <small class="text-danger">@error('productPrice'){{$message}}@enderror</small>
                             </div>
                             <div class="form-group">
                                 <label for="cc-payment" class="control-label mb-1">Waiting Time in minutes</label>
-                                <input id="cc-pament" name="waitingTime" type="number" class="form-control" aria-required="true" aria-invalid="false">
+                                <input id="cc-pament" name="waitingTime" type="number" class="form-control" value="{{old('waitingTime')}}" aria-required="true" aria-invalid="false">
                                 <small class="text-danger">@error('waitingTime'){{$message}}@enderror</small>
                             </div>
                             <div>
