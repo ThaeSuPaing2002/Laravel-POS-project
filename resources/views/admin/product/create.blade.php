@@ -29,6 +29,12 @@
                                 <textarea class="form-control" name="productDescription" id="exampleFormControlTextarea1" rows="3">{{old('productDescription')}} </textarea>
                                 <small class="text-danger">@error('productDescription'){{$message}}@enderror</small>
                             </div>
+                            <select class="form-select" name="productCategory" aria-label="Default select example">
+                                <option selected>select category</option>
+                                {{-- @foreach($categories as $c)
+                                <option value="{{$c->id}}">{{$c->name}}</option>
+                                @endforeach --}}
+                              </select>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">Product Image</label>
                                 <input class="form-control" type="file" name="productImage" value="{{old('productImage')}}" id="formFile">

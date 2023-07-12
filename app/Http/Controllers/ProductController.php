@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Storage;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -10,7 +11,13 @@ class ProductController extends Controller
 {
     //view list page
     public function list(){
-        $products = Product::orderBy('created_at','desc')->paginate(3);
+        $products = Product::select('products.*','categories.name as category_name')
+        ->when(request('key'),function($query){
+            $query->where('products.name','like','%key%');
+        })->leftJoin('categories','products.id','categories.id')
+        ->orderBy('products.created_at','desc')->paginate(3);
+        $products->appends(request()->all());
+        //dd($products);
         return view('admin.product.list',compact('products'));
     }
     //product create page
@@ -25,8 +32,10 @@ class ProductController extends Controller
         $request->file('productImage')->storeAs('public',$fileName);
         $data['image']=$fileName;
         $request->file('productImage')->storeAs('public',$fileName);
+        $categories = Category::get();
+        dd($categories);
         Product::create($data);
-        return redirect()->route('product#list')->with(['createSuccess'=>'Product is created!']);
+        return redirect()->route('product#list',compact('categories'))->with(['createSuccess'=>'Product is created!']);
     }
     //delete product
     public function delete($id){

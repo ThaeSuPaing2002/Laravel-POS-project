@@ -79,7 +79,7 @@
                                     <tr>
                                         <td class="col-lg-3"><img src="{{asset('storage/'.$product->image)}}" class="img-fluid" alt="..."></td>
                                         <td>{{$product->name}}</td>
-                                        <td>Category</td>
+                                        <td>{{$product->category_name}}</td>
                                         <td>{{$product->description}}</td>
                                         <td>{{$product->price}}</td>
                                         <td>{{$product->waitingTime}} mins</td>
